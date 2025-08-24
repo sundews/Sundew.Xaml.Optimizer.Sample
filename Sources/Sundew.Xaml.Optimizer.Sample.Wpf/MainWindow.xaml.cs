@@ -5,13 +5,13 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Sundew.Xaml.Sample
+namespace Sundew.Xaml.Optimizer.Sample
 {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
     using System.Reflection;
+    using Sundew.Xaml.Theming;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml.
@@ -21,24 +21,15 @@ namespace Sundew.Xaml.Sample
         public MainWindow()
         {
             this.DataContext = this;
-            this.ThemeManager = new ThemeManager(
-                new ObservableCollection<ThemeInfo>
-                {
-                    new ThemeInfo("/Themes/Dark.xaml"),
-                    new ThemeInfo("/Themes/Light.xaml"),
-                });
-            this.InitializeComponent();
-
-            this.Loaded += (s, e) => this.ThemeManager.CurrentTheme = this.ThemeManager.ThemeInfos[0];
         }
 
-        public ThemeManager ThemeManager { get; }
+        public ThemeManager ThemeManager => ((App)App.Current).ThemeManager;
 
-        public List<ResourceDicionaryInfo> ResourceDictionaries
+        public List<ResourceDictionaryInfo> ResourceDictionaries
         {
             get
             {
-                var list = new List<ResourceDicionaryInfo>();
+                var list = new List<ResourceDictionaryInfo>();
                 var dictionary = (IEnumerable)typeof(Sundew.Xaml.Optimizations.ResourceDictionary).GetField("ResourceDictionaries", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
                 foreach (var o in dictionary)
                 {
@@ -48,16 +39,16 @@ namespace Sundew.Xaml.Sample
                                          "ReferencingResourceDictionaries",
                                          BindingFlags.Instance | BindingFlags.Public)
                                          .GetValue(value)).Count;
-                    list.Add(new ResourceDicionaryInfo(key, references));
+                    list.Add(new ResourceDictionaryInfo(key, references));
                 }
 
                 return list;
             }
         }
 
-        public class ResourceDicionaryInfo
+        public class ResourceDictionaryInfo
         {
-            public ResourceDicionaryInfo(Uri uri, int references)
+            public ResourceDictionaryInfo(Uri uri, int references)
             {
                 this.Uri = uri;
                 this.References = references;
