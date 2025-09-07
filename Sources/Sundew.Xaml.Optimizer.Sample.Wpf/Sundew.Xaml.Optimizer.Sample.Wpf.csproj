@@ -4,19 +4,14 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Sundew.Xaml.Optimizer.Sample</RootNamespace>
     <UseWPF>true</UseWPF>
+	  <Nullable>enable</Nullable>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <Configurations>Ad-Hoc;AppStore;Debug;Release</Configurations>
-	<DocumentationFile>$(OutputPath)/$(TargetFramework)/$(AssemblyName).xml</DocumentationFile>
-    <RootNamespace>Sundew.Xaml.Optimizer.Sample</RootNamespace>
-	  <!--	  <DefineConstants>$(DefineConstants);DEBUG_SXO</DefineConstants>-->
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-	  <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-	  <NoWarn>1591</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+	  <DocumentationFile>$(OutputPath)/$(TargetFramework)/$(AssemblyName).xml</DocumentationFile>
+	  <RootNamespace>Sundew.Xaml.Optimizer.Sample</RootNamespace>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <NoWarn>1591</NoWarn>
+	  <!--	  <DefineConstants>$(DefineConstants);DEBUG_SXO</DefineConstants>-->
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.ComponentModel.Composition" />
@@ -24,6 +19,7 @@
   <ItemGroup>
     <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>
+	
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="StyleCop.Analyzers.Unstable" Version="1.2.0.556">
@@ -31,13 +27,25 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Sundew.Base" Version="15.0.0-u20250815-095250-ci" />
-    <PackageReference Include="Sundew.Xaml.Controls.Wpf" Version="0.1.0-u20250824-000856-ci" />
-    <PackageReference Include="Sundew.Xaml.Optimizer.BuildTask" Version="3.0.0-u20250823-235721-ci">
+    <PackageReference Include="Sundew.Xaml.Controls.Wpf" Version="0.1.0-u20250907-000357-local" />
+    <PackageReference Include="Sundew.Xaml.Optimizer.BuildTask" Version="3.0.0-u20250907-223757-local">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Sundew.Xaml.Optimizers" Version="3.0.0-u20250824-003042-ci" />
-    <PackageReference Include="Sundew.Xaml.Theming.Wpf" Version="0.1.0-u20250824-000856-ci" />
+    <PackageReference Include="Sundew.Xaml.Optimizers.Wpf" Version="3.0.0-u20250907-224137-local" />
+  </ItemGroup>
 
+  <PropertyGroup>
+	  <CustomOptimizerMerged>$(MSBuildThisFileDirectory)..\CustomOptimizer\bin\Debug\netstandard2.0\CustomOptimizer.m.dll</CustomOptimizerMerged>
+	  <CustomOptimizer Condition="Exists($(CustomOptimizerMerged))">$(CustomOptimizerMerged)</CustomOptimizer>
+	  <CustomOptimizer Condition="'$(CustomOptimizer)'==''">$(MSBuildThisFileDirectory)..\CustomOptimizer\bin\Debug\netstandard2.0\CustomOptimizer.dll</CustomOptimizer> 
+  </PropertyGroup>
+  
+  <ItemGroup>
+	  <Sxo Include="$(CustomOptimizer)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CustomOptimizer\CustomOptimizer.csproj" ReferenceOutputAssembly="False" />
   </ItemGroup>
 </Project>

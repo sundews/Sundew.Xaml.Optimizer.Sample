@@ -4,20 +4,32 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sx="http://sundew.dev/xaml"
+    xmlns:sxd="http://sundew.dev/xaml/design"
     xmlns:sample="clr-namespace:Sundew.Xaml.Optimizer.Sample"
     xmlns:theming="clr-namespace:Sundew.Xaml.Theming;assembly=Sundew.Xaml.Theming.Wpf"
-    mc:Ignorable="d">
+    mc:Ignorable="d sxd">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="/Sundew.Xaml.Optimizer.Sample.Wpf;component/Themes/Sky/Modes/Designer.xaml" sxd:ResourceDictionary.Category="❌"/>
+
+    </ResourceDictionary.MergedDictionaries>
+
 
     <Style TargetType="Window">
-        <Setter Property="Background" Value="{StaticResource WindowBackgroundBrush🔄️}"/>
+        <Setter Property="Background" Value="{StaticResource WindowBackgroundBrush💫🔄️}"/>
         <Setter Property="Foreground" Value="{StaticResource AccentNeutralBrush💫🔄️}"/>
         <Setter Property="Template" >
             <Setter.Value>
                 <ControlTemplate TargetType="Window">
                     <sx:Border 
-                        BorderBrush="{StaticResource BackgroundNeutralBrush🔄️}" 
+                        LeftBrush="{StaticResource BackgroundNeutralBrush🔄️}" 
+                        TopBrush="{StaticResource BackgroundNeutralBrush🔄️}" 
+                        RightBrush="{StaticResource BackgroundNeutralBrush🔄️}" 
+                        BottomBrush="{StaticResource BackgroundNeutralBrush🔄️}" 
                         BorderThickness="4"
-                        CornerRadius="10"
+                        Margin="-1,0,0,0"
+                        CornerRadius="0,0,10,10"
                         Background="{TemplateBinding Background}"
                         Padding="{TemplateBinding Padding}">
                         <ContentPresenter/>
@@ -36,6 +48,9 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="sample:MainWindow" BasedOn="{StaticResource {x:Type Window}}"/>
+    <Style TargetType="sample:MainWindow" BasedOn="{StaticResource {x:Type Window}}">
+        <Setter Property="Background" Value="{StaticResource WindowBackgroundBrush💫🔄️}"/>
+        <Setter Property="Foreground" Value="{StaticResource AccentNeutralBrush💫🔄️}"/>
+    </Style>
 
 </ResourceDictionary>

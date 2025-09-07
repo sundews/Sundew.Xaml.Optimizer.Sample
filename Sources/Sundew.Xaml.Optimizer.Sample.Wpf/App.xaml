@@ -4,12 +4,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:sx="http://sundew.dev/xaml"
-             mc:Ignorable="d"
+             xmlns:sxd="http://sundew.dev/xaml/design"
+             mc:Ignorable="d sxd"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Sundew.Xaml.Optimizer.Sample.Wpf;component/Themes/Default.xaml" d:sx.ResourceDictionary.Category="♻️" />
+                <ResourceDictionary Source="/Sundew.Xaml.Optimizer.Sample.Wpf;component/Themes/Designer.xaml" sxd:ResourceDictionary.Category="❌" />
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>

@@ -11,7 +11,6 @@
     Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
         <ResourceDictionary>
-
             <Storyboard x:Key="SampleAnimation" AutoReverse="True" RepeatBehavior="Forever">
                 <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border">
                     <LinearColorKeyFrame KeyTime="0:0:2" Value="{StaticResource GradientStop🔄️}"/>
@@ -26,56 +25,83 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition />
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock FontSize="48" Text="Sundew.Xaml.Optimizer sample"/>
         <Grid Grid.Row="1">
+            <Slider x:Name="LayoutSlider"  Minimum="0.5" Maximum="4" Value="1"/>
+            <Slider x:Name="RenderSlider" Minimum="0.5" Maximum="4" Value="1" Grid.Column="1"/>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="ResourceDictionary"/>
-            <TextBlock Grid.Column="1" Text="Shared References"/>
         </Grid>
-        <ItemsControl ItemsSource="{Binding ResourceDictionaries}" Grid.Row="2">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding Uri}"/>
-                        <TextBlock Grid.Column="1" Text="{Binding References}"/>
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-        <Border x:Name="border" Grid.Row="3" Height="50">
-            <Border.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop x:Name="Start" Color="{DynamicResource GradientStart}" Offset="0"/>
-                    <GradientStop x:Name="Stop" Color="{DynamicResource GradientStop}" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-            <Border.Triggers>
-                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                    <BeginStoryboard Storyboard="{StaticResource SampleAnimation}"/>
-                </EventTrigger>
-            </Border.Triggers>
-        </Border>
-        <ComboBox Grid.Row="4" SelectedItem="{Binding ThemeManager.CurrentTheme, NotifyOnTargetUpdated=True}" ItemsSource="{Binding ThemeManager.Themes}" />
-        <ComboBox Grid.Row="5" SelectedItem="{Binding ThemeManager.CurrentThemeMode, NotifyOnTargetUpdated=True}" ItemsSource="{Binding ThemeManager.CurrentTheme.ThemeModes}" />
+        <TextBlock FontSize="48" Text="Sundew.Xaml.Optimizer sample"/>
+        <sx:Border Grid.Row="2" VerticalAlignment="Stretch" CornerRadius="48" BorderThickness="12" Padding="12"
+                   LeftBrush="{StaticResource AccentSubtleBrush💫🔄️}"
+                   TopBrush="{StaticResource AccentSubtleBrush💫🔄️}"
+                   RightBrush="{StaticResource AccentNeutralBrush💫🔄️}"
+                   BottomBrush="{StaticResource AccentNeutralBrush💫🔄️}">
+            <sx:Border.LayoutTransform>
+                <ScaleTransform ScaleX="{Binding ElementName=LayoutSlider, Path=Value}" ScaleY="{Binding ElementName=LayoutSlider, Path=Value}"/>
+            </sx:Border.LayoutTransform>
+            <sx:Border.RenderTransform>
+                <ScaleTransform  ScaleX="{Binding ElementName=RenderSlider, Path=Value}" ScaleY="{Binding ElementName=RenderSlider, Path=Value}"/>
+            </sx:Border.RenderTransform>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.25*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="ResourceDictionary"/>
+                    <TextBlock Grid.Column="1" Text="Shared References"/>
+                </Grid>
+                <ItemsControl ItemsSource="{Binding ResourceDictionaries}" Grid.Row="1">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="0.25*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Uri}"/>
+                                <TextBlock Grid.Column="1" Text="{Binding References}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <Border x:Name="border" Grid.Row="2" Height="50">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <LinearGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop x:Name="Start" Color="{DynamicResource GradientStart}" Offset="0"/>
+                            <GradientStop x:Name="Stop" Color="{DynamicResource GradientStop}" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.Triggers>
+                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                            <BeginStoryboard Storyboard="{StaticResource SampleAnimation}"/>
+                        </EventTrigger>
+                    </Border.Triggers>
+                </Border>
+                <ComboBox Grid.Row="3" SelectedItem="{Binding ThemeManager.CurrentTheme, NotifyOnTargetUpdated=True}" ItemsSource="{Binding ThemeManager.Themes}" />
+                <ComboBox Grid.Row="4" SelectedItem="{Binding ThemeManager.CurrentThemeMode, NotifyOnTargetUpdated=True}" ItemsSource="{Binding ThemeManager.CurrentTheme.ThemeModes}" />
+            </Grid>
+        </sx:Border>
     </Grid>
 </Window>

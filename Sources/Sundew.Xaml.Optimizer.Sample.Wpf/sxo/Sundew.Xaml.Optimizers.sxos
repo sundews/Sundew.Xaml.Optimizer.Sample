@@ -7,13 +7,27 @@
       "Settings": {
         "OptimizationMappings": [
           {
-            "Category": "🎨",
+            "Category": "❌",
             "Action": "Remove"
           },
           {
             "Category": "♻️",
             "Action": "Replace",
             "ReplacementType": "sx|http://sundew.dev/xaml|ResourceDictionary"
+          },
+          {
+            "Category": "🎨",
+            "Action": "Replace",
+            "ReplacementType": "sx|http://sundew.dev/xaml|ThemeResourceDictionary"
+          },
+          {
+            "Category": "🖌️",
+            "Action": "Replace",
+            "ReplacementType": "sx|http://sundew.dev/xaml|ThemeModeResourceDictionary"
+          },
+          {
+            "Category": "👩‍🎨",
+            "Action": "None"
           }
         ]
       }
@@ -31,6 +45,20 @@
       "IsEnabled": true,
       "Settings": {
         "DynamicMarker": "🔄️",
+      }
+    },
+    {
+      "Name": "DiagnosticSample",
+      "IsEnabled": true,
+      "Settings": {
+      }
+    },
+    {
+      "Name": "ThemeOptimizer",
+      "IsEnabled": true,
+      "Settings": {
+        "ThemesPath": "Themes",
+        "ThemeModesPath": "Modes"
       }
     }
   ]
