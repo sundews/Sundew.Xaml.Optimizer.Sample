@@ -50,7 +50,6 @@
 
     <Style TargetType="sample:MainWindow" BasedOn="{StaticResource {x:Type Window}}">
         <Setter Property="Background" Value="{StaticResource WindowBackgroundBrush💫🔄️}"/>
-        <Setter Property="Foreground" Value="{StaticResource AccentNeutralBrush💫🔄️}"/>
     </Style>
 
 </ResourceDictionary>

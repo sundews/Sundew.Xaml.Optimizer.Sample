@@ -50,16 +50,5 @@ public partial class App
 
     private void ThemeManager_ThemeChanged(object? sender, ThemeUpdateEventArgs e)
     {
-        /*foreach (Window window in Application.Current.Windows)
-        {
-            var style = window.Style;
-            window.UpdateLayout();
-            if (style == null)
-            {
-                continue;
-            }
-
-            window.SetResourceReference(FrameworkElement.StyleProperty, style.TargetType);
-        }*/
     }
 }
