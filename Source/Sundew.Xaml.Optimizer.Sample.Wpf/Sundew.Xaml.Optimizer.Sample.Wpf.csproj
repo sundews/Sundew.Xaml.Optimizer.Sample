@@ -12,7 +12,7 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <NoWarn>1591</NoWarn>
 		<!--<DefineConstants>$(DefineConstants);DEBUG_SXO</DefineConstants>-->
-  </PropertyGroup>
+	</PropertyGroup>
   <ItemGroup>
     <Reference Include="System.ComponentModel.Composition" />
   </ItemGroup>
@@ -27,23 +27,23 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Sundew.Base" Version="15.0.0-u20250815-095250-ci" />
-    <PackageReference Include="Sundew.Xaml.Controls.Wpf" Version="0.1.0-u20250907-003757-ci" />
-    <PackageReference Include="Sundew.Xaml.Optimizer.BuildTask" Version="3.0.0-u20250907-233313-ci">
+    <PackageReference Include="Sundew.Xaml.Controls.Wpf" Version="0.1.0-u20250914-143042-ci" />
+    <PackageReference Include="Sundew.Xaml.Optimizer.BuildTask" Version="3.0.0-u20250914-153751-ci">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Sundew.Xaml.Optimizers.Wpf" Version="3.0.0-u20250908-060659-ci" />
-    <PackageReference Include="Sundew.Xaml.Theming.Wpf" Version="0.1.0-u20250907-003757-ci" />
+    <PackageReference Include="Sundew.Xaml.Optimizers.Wpf" Version="3.0.0-u20250914-145926-ci" />
+    <PackageReference Include="Sundew.Xaml.Theming.Wpf" Version="0.1.0-u20250914-143042-ci" />
   </ItemGroup>
 
   <PropertyGroup>
-	  <CustomOptimizerMerged>$(MSBuildThisFileDirectory)..\CustomOptimizer\bin\Debug\netstandard2.0\CustomOptimizer.m.dll</CustomOptimizerMerged>
+	  <CustomOptimizerMerged>$(MSBuildThisFileDirectory)..\CustomOptimizer\bin\$(Configuration)\netstandard2.0\CustomOptimizer.m.dll</CustomOptimizerMerged>
 	  <CustomOptimizer Condition="Exists($(CustomOptimizerMerged))">$(CustomOptimizerMerged)</CustomOptimizer>
-	  <CustomOptimizer Condition="'$(CustomOptimizer)'==''">$(MSBuildThisFileDirectory)..\CustomOptimizer\bin\Debug\netstandard2.0\CustomOptimizer.dll</CustomOptimizer> 
+	  <CustomOptimizer Condition="'$(CustomOptimizer)'==''">$(MSBuildThisFileDirectory)..\CustomOptimizer\bin\$(Configuration)\netstandard2.0\CustomOptimizer.dll</CustomOptimizer> 
   </PropertyGroup>
 
 	<ItemGroup>
-	  <Sxo Include="$(CustomOptimizer)" />
+		<Sxo Include="$(CustomOptimizer)" />
   </ItemGroup>
 
 	<ItemGroup>

@@ -34,7 +34,7 @@ public partial class App
                         new Sundew.Xaml.Theming.ThemeMode("/Sundew.Xaml.Optimizer.Sample.Wpf;component/Themes/Sky/Modes/Light.xaml")
                     ]),
             },
-            false);
+            true);
         this.InitializeComponent();
 
         this.ThemeManager.CurrentTheme = this.ThemeManager.Themes[0];
