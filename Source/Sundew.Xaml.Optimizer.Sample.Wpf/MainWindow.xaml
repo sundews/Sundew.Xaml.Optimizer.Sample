@@ -9,18 +9,7 @@
     mc:Ignorable="d sxd"
     Padding="20"
     Title="MainWindow" Height="450" Width="800">
-    <Window.Resources>
-        <ResourceDictionary>
-            <Storyboard x:Key="SampleAnimation" AutoReverse="True" RepeatBehavior="Forever">
-                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border">
-                    <LinearColorKeyFrame KeyTime="0:0:2" Value="{StaticResource GradientStop🔄️}"/>
-                </ColorAnimationUsingKeyFrames>
-                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="border">
-                    <LinearColorKeyFrame KeyTime="0:0:2" Value="{StaticResource GradientStart🔄️}"/>
-                </ColorAnimationUsingKeyFrames>
-            </Storyboard>
-        </ResourceDictionary>
-    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -93,11 +82,6 @@
                             <GradientStop x:Name="Stop" Color="{DynamicResource GradientStop}" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
-                    <Border.Triggers>
-                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                            <BeginStoryboard Storyboard="{StaticResource SampleAnimation}"/>
-                        </EventTrigger>
-                    </Border.Triggers>
                 </Border>
                 <ComboBox Grid.Row="3" SelectedItem="{Binding ThemeManager.CurrentTheme, NotifyOnTargetUpdated=True}" ItemsSource="{Binding ThemeManager.Themes}" />
                 <ComboBox Grid.Row="4" SelectedItem="{Binding ThemeManager.CurrentThemeMode, NotifyOnTargetUpdated=True}" ItemsSource="{Binding ThemeManager.CurrentTheme.ThemeModes}" />

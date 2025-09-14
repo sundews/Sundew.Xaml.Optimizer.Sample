@@ -16,6 +16,19 @@
     </ResourceDictionary.MergedDictionaries>
 
 
+    <LinearGradientBrush x:Key="WindowBackgroundBrush💫🔄️" EndPoint="0.5,1" StartPoint="0.5,0">
+        <LinearGradientBrush.RelativeTransform>
+            <TransformGroup>
+                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </LinearGradientBrush.RelativeTransform>
+        <GradientStop x:Name="Start" Color="{StaticResource BackgroundSubtleColor🔄️}" Offset="0"/>
+        <GradientStop x:Name="Stop" Color="{StaticResource BackgroundStrikingColor🔄️}" Offset="1"/>
+    </LinearGradientBrush>
+
     <Style TargetType="Window">
         <Setter Property="Background" Value="{StaticResource WindowBackgroundBrush💫🔄️}"/>
         <Setter Property="Foreground" Value="{StaticResource AccentNeutralBrush💫🔄️}"/>
@@ -50,6 +63,7 @@
 
     <Style TargetType="sample:MainWindow" BasedOn="{StaticResource {x:Type Window}}">
         <Setter Property="Background" Value="{StaticResource WindowBackgroundBrush💫🔄️}"/>
+        <Setter Property="Foreground" Value="{StaticResource AccentNeutralBrush💫🔄️}"/>
     </Style>
 
 </ResourceDictionary>
