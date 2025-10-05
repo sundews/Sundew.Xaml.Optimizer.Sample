@@ -25,7 +25,7 @@
     </PackageReference>
     <PackageReference Include="Sundew.Base" Version="15.0.0-u20251005-141352-ci" />
     <PackageReference Include="Sundew.Xaml.Controls.Wpf" Version="0.1.0-u20251005-200941-ci" />
-    <PackageReference Include="Sundew.Xaml.Optimizer.BuildTask" Version="3.0.0-u20251005-224556-local">
+    <PackageReference Include="Sundew.Xaml.Optimizer.BuildTask" Version="3.0.0-u20251005-222531-ci">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
