@@ -11,13 +11,10 @@
 	  <RootNamespace>Sundew.Xaml.Optimizer.Sample</RootNamespace>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <NoWarn>1591</NoWarn>
-		<!--<DefineConstants>$(DefineConstants);DEBUG_SXO</DefineConstants>-->
-	</PropertyGroup>
+    <!--<DefineConstants>$(DefineConstants);DEBUG_SXO</DefineConstants>-->
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.ComponentModel.Composition" />
-  </ItemGroup>
-  <ItemGroup>
-    <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>
 	
   <ItemGroup>
@@ -26,14 +23,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Sundew.Base" Version="15.0.0-u20250815-095250-ci" />
-    <PackageReference Include="Sundew.Xaml.Controls.Wpf" Version="0.1.0-u20250921-213258-ci" />
-    <PackageReference Include="Sundew.Xaml.Optimizer.BuildTask" Version="3.0.0-u20250921-220048-ci">
+    <PackageReference Include="Sundew.Base" Version="15.0.0-u20251005-141352-ci" />
+    <PackageReference Include="Sundew.Xaml.Controls.Wpf" Version="0.1.0-u20251005-200941-ci" />
+    <PackageReference Include="Sundew.Xaml.Optimizer.BuildTask" Version="3.0.0-u20251005-224556-local">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Sundew.Xaml.Optimizers.Wpf" Version="3.0.0-u20250921-220206-ci" />
-    <PackageReference Include="Sundew.Xaml.Theming.Wpf" Version="0.1.0-u20250921-213258-ci" />
+    <PackageReference Include="Sundew.Xaml.Optimizers.Wpf" Version="3.0.0-u20251005-221207-ci" />
+    <PackageReference Include="Sundew.Xaml.Theming.Wpf" Version="0.1.0-u20251005-200941-ci" />
   </ItemGroup>
 
   <PropertyGroup>
