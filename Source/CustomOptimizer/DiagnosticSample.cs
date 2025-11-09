@@ -7,6 +7,7 @@
 
 namespace CustomOptimizer;
 
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Sundew.Xaml.Optimization;
@@ -29,7 +30,7 @@ public class DiagnosticSample : IXamlOptimizer
     /// <param name="xamlPlatformInfo">The xaml platform info.</param>
     /// <param name="projectInfo">The project info.</param>
     /// <returns>The optimization result.</returns>
-    public ValueTask<OptimizationResult> OptimizeAsync(IReadOnlyList<XamlFile> xamlFiles, XamlPlatformInfo xamlPlatformInfo, ProjectInfo projectInfo)
+    public ValueTask<OptimizationResult> OptimizeAsync(XamlFiles xamlFiles, XamlPlatformInfo xamlPlatformInfo, ProjectInfo projectInfo)
     {
         var xamlDiagnostic = new XamlDiagnostic("DS0001", "This is a sample diagnostic from the DiagnosticSample optimizer.", [], DiagnosticSeverity.Warning, xamlFiles[0].Reference.Path, 1, 1, 1, 1);
         return OptimizationResult.Report(xamlDiagnostic);

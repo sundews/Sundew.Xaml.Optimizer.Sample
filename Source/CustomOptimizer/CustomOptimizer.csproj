@@ -13,9 +13,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-		<PackageReference Include="Sundew.Xaml.Optimization" Version="3.0.0-u20251005-213009-ci" />
+		<PackageReference Include="Sundew.Xaml.Optimization" Version="3.0.0-u20251108-214911-ci" />
 
-    <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.44">
+    <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.44.1">
 	    <PrivateAssets>all</PrivateAssets>
 	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -28,7 +28,7 @@
 	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-		<PackageReference Include="Sundew.Base" Version="15.0.0-u20251005-141352-ci" />
+		<PackageReference Include="Sundew.Base" Version="15.0.0-u20251108-214246-ci" />
   </ItemGroup>
 
 </Project>
