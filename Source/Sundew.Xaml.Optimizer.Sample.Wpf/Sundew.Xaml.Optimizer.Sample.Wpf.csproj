@@ -23,14 +23,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Sundew.Base" Version="15.0.0" />
-    <PackageReference Include="Sundew.Xaml.Controls.Wpf" Version="0.1.0-u20251117-005621-ci" />
-    <PackageReference Include="Sundew.Xaml.Optimizer.BuildTask" Version="3.0.0-u20251117-020852-ci">
+    <PackageReference Include="Sundew.Base" Version="17.0.0" />
+    <PackageReference Include="Sundew.Xaml.Controls.Wpf" Version="0.1.2" />
+    <PackageReference Include="Sundew.Xaml.Optimizer.BuildTask" Version="3.0.0-u20261017-233002-ci">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Sundew.Xaml.Optimizers.Wpf" Version="3.0.0-u20251117-011538-ci" />
-    <PackageReference Include="Sundew.Xaml.Theming.Wpf" Version="0.1.0-u20251117-005621-ci" />
+    <PackageReference Include="Sundew.Xaml.Optimizers.Wpf" Version="3.0.0-u20261017-230105-ci" />
+    <PackageReference Include="Sundew.Xaml.Theming.Wpf" Version="0.1.2" />
   </ItemGroup>
 
   <PropertyGroup>
